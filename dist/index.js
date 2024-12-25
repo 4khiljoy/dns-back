@@ -35,9 +35,10 @@ app.get("/", (req, res) => {
 ///----------------ITEMS ENDPOINTS --------------------------
 //-----------------------------------------------------------
 app.post("/items", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { menuId } = req.body;
+    const { id } = req.body;
+    console.log(req.body, id);
     const items = new Items();
-    const r = yield items.getItem(menuId);
+    const r = yield items.getItem(id);
     if (!r) {
         console.log("Item not retrieved");
         res.status(500).send("Item not retrieved");
@@ -283,6 +284,7 @@ class Items {
     }
     getItem(menuId) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log(menuId);
             try {
                 const d = yield prisma_1.prisma.item.findMany({
                     where: {

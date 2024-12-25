@@ -27,10 +27,11 @@ app.get("/", (req: Request, res: Response) => {
 //-----------------------------------------------------------
 
 app.post("/items", async (req: Request, res: Response) => {
-    const { menuId } = req.body;
+    const { id } = req.body;
+    console.log(req.body, id);
     const items = new Items();
 
-    const r = await items.getItem(menuId);
+    const r = await items.getItem(id);
     if (!r) {
         console.log("Item not retrieved");
         res.status(500).send("Item not retrieved");
@@ -276,6 +277,7 @@ class Items {
     }
 
     async getItem(menuId: string) {
+        console.log(menuId);
         try {
             const d = await prisma.item.findMany({
                 where: {
