@@ -1,0 +1,21 @@
+{
+  "name": "express-ts",
+  "version": "1.0.0",
+  "description": "Express app with TypeScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js"
+  },
+  "dependencies": {
+    "@prisma/client": "5.22.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "prisma": "^6.1.0",
+    "typescript": "^5.7.2"
+  }
+}
